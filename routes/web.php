@@ -8,6 +8,8 @@ Route::get('/', function () {
 });
 
 Route::get('admin/login', [AdminController::class,'index'])->name('admin.login');
+Route::get('admin/logout', [AdminController::class,'logout'])->name('admin.logout');
+
 Route::get('admin/register', [AdminController::class,'register'])->name('admin.register');
 
 Route::post('admin/login', [AdminController::class,'authenticate'])->name('admin.authenticate');
