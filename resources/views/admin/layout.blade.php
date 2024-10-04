@@ -212,7 +212,7 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('admin.dashboard')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Dashboard
@@ -224,35 +224,25 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Charts
+                                    Acadmic Year
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                    <a href="{{route('academic-year.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>ChartJS</p>
+                                        <p>Add Record</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/charts/flot.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Flot</p>
+                                        <p>View Record</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inline</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/uplot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>uPlot</p>
-                                    </a>
-                                </li>
+                              
+                        
                             </ul>
                         </li>
 
@@ -266,7 +256,7 @@
         @yield('content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2024 <a href="https://www.laraartisan.com/">School Management</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
