@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1> Class </h1>
+                        <h1>Academic Year</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Class</li>
+                            <li class="breadcrumb-item active">Academic Year</li>
                         </ol>
                     </div>
                 </div>
@@ -35,17 +35,19 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Update  Class</h3>
+                                <h3 class="card-title">Add Academic Year</h3>
                             </div>
 
 
-                            <form action="{{route('class.store')}}" method="POST">
+                            <form action="{{route('class.update')}}" method="POST">
                                 @csrf
+                                <input type="hidden" name="id" value="{{$class->id}}">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Class Name</label>
-                                        <input type="text" class="form-control" name="name" id="exampleInputEmail1"
-                                            placeholder="Enter class Name">
+                                        <label for="exampleInputEmail1">Class Name </label>
+                                        <input type="text" class="form-control" name="name" value="{{old('name', $class->name)}}"
+                                        id="exampleInputEmail1"
+                                            placeholder="Enter Academic Yeaar">
                                     </div>
                                     @error('name') 
                                     <p class="text-danger">{{$message}}</p>
@@ -54,7 +56,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Update Class</button>
+                                    <button type="submit" class="btn btn-primary">Update Class Name</button>
                                 </div>
                             </form>
                         </div>
@@ -63,13 +65,13 @@
 
                     </div>
 
-                </div> 
+                </div>
         </section>
 
     </div>
 @endsection
 
-{{-- @section('customjs')
+@section('customjs')
     <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
     <script>
@@ -77,4 +79,4 @@
             bsCustomFileInput.init();
         });
     </script>
-@endsection --}}
+@endsection 

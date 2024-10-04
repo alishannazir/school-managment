@@ -18,7 +18,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Student  List</li>
+                            <li class="breadcrumb-item active">Student List</li>
                         </ol>
                     </div>
                 </div>
@@ -67,9 +67,11 @@
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->name }} </td>
                                                 <td>{{ $item->father_name }} </td>
-                                                <td>{{ $item->email  }} </td>
-                                                <td>{{ $item->class_id  }} </td>
-                                                <td>{{ $item->academic_year_id  }} </td>
+                                                <td>{{ $item->email }} </td>
+                                                {{-- <td>{{ $item->class->name }} </td> --}}
+                                                {{-- <td>{{ $item->academicYear->name }} </td> --}}
+                                                <td>{{ $item->class_id}} </td>
+                                                <td>{{ $item->academic_year_id}} </td>
                                                 <td>{{ $item->admission_date }} </td>
                                                 <td>{{ $item->cnic }} </td>
                                                 <td>{{ $item->mobno }} </td>
@@ -85,7 +87,7 @@
                                         @endforeach
 
                                     </tbody>
-                                  
+
                                 </table>
                             </div>
 

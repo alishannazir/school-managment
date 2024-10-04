@@ -20,85 +20,84 @@ class StudentController extends Controller
     }
 
 
-public function store(Request $request)
-{
-    // echo'ok';
-    $request->validate(rules: [
-        'academic_year_id' => 'required',
-        'class_id' => 'required',
-        'admission_date' => 'required',
-        'name' => 'required',
-        'father_name' => 'required',
-        'cnic' => 'required',
-        'mobno' => 'required',
-        'dob' => 'required',
-        'address' => 'required',
-        'password' => 'required',
-        'email' => 'required'
+    public function store(Request $request)
+    {
 
-    ]);
+        $request->validate(rules: [
+            'academic_year_id' => 'required',
+            'class_id' => 'required',
+            'admission_date' => 'required',
+            'name' => 'required',
+            'father_name' => 'required',
+            'cnic' => 'required',
+            'mobno' => 'required',
+            'dob' => 'required',
+            'address' => 'required',
+            'password' => 'required',
+            'email' => 'required'
 
-    $user = new User();
-    $user->academic_year_id = $request->academic_year_id;
-    $user->class_id = $request->class_id;
-    // dd($user);
-    $user->admission_date = $request->admission_date;
-    $user->name = $request->name;
-    $user->cnic = $request->cnic;
-    $user->address = $request->address;
-    $user->email = $request->email;
-    $user->father_name = $request->father_name;
-    $user->mobno = $request->mobno;
-    $user->dob = $request->dob;
-    $user->password = Hash::make($request->password) ;
-    
-    $user->save();
-    
+        ]);
 
+        $user = new User();
+        $user->academic_year_id = $request->academic_year_id;
+        $user->class_id = $request->class_id;
+        $user->admission_date = $request->admission_date;
+        $user->name = $request->name;
+        $user->cnic = $request->cnic;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->father_name = $request->father_name;
+        $user->mobno = $request->mobno;
+        $user->dob = $request->dob;
+        $user->password = Hash::make($request->password);
+        $user->save();
 
-    return redirect()->route('student.read')->with('success', 'Student Added Successfully');
-}
+        return redirect()->route('student.read')->with('success', 'Student Added Successfully');
+    }
 
-public function read()
-{
+    public function read()
+    {
 
-    $data['student'] = Users::get();
-    return view('admin.student.student_list', $data);
-}
+        $data['student'] = Users::get();
+        // $data['students'] = Users::with('academicYear', 'class')->get();
+        // $data['students'] = Student::with('academicYear', 'class')->get();
 
-public function edit($id)
-{
-    $data['classes'] = Classes::all();
-    $data['academic_years'] = AcademicYear::all();
-    $data['student'] = Users::find($id);
-    return view('admin.student.edit_student',$data);
+        return view('admin.student.student_list', $data);
+    }
 
-}
-public function update(Request $request)
-{
-    $data= Users::find($request->id);
-    $data->academic_year_id = $request->academic_year_id;
-    $data->class_id = $request->class_id;
-    $data->admission_date = $request->admission_date;
-    $data->name = $request->name;
-    $data->cnic = $request->cnic;
-    $data->address = $request->address;
-    $data->email = $request->email;
-    $data->father_name = $request->father_name;
-    $data->mobno = $request->mobno;
-    $data->dob = $request->dob;
-    $data->update();
-    return redirect()->route('student.read')->with('success', 'Student Udated  Successfully');
+    public function edit($id)
+    {
+        $data['classes'] = Classes::all();
+        $data['academic_years'] = AcademicYear::all();
+        $data['student'] = Users::find($id);
+        return view('admin.student.edit_student', $data);
 
-}
+    }
+    public function update(Request $request)
+    {
+        $data = Users::find($request->id);
+        $data->academic_year_id = $request->academic_year_id;
+        $data->class_id = $request->class_id;
+        $data->admission_date = $request->admission_date;
+        $data->name = $request->name;
+        $data->cnic = $request->cnic;
+        $data->address = $request->address;
+        $data->email = $request->email;
+        $data->father_name = $request->father_name;
+        $data->mobno = $request->mobno;
+        $data->dob = $request->dob;
+        $data->update();
+        return redirect()->route('student.read')->with('success', 'Student Udated  Successfully');
 
-public function delete($id)
-{
+    }
 
-    $data = Users::find($id);
-    $data->delete();
-    return redirect()->route('student.read')->with('success', 'Student Deleted  Successfully');
+    public function delete($id)
+    {
 
-}
+        $data = Users::find($id);
+        $data->delete();
+        return redirect()->route('student.read')->with('success', 'Student Deleted  Successfully');
+
+    }
 
 }

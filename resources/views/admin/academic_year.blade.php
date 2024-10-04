@@ -26,13 +26,13 @@
 
                         <div class="card card-primary">
 
-                            @if (Session::has ('success'))
+                            {{-- @if (Session::has ('success'))
 
                             <div class=" alert alert-success">
                                 {{Session::get('success')}}
                             </div>
                                 
-                            @endif
+                            @endif --}}
 
                             <div class="card-header">
                                 <h3 class="card-title">Add Academic Year</h3>

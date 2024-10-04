@@ -31,17 +31,19 @@ class AcademicYearController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
+        
         $data = new AcademicYear();
         $data->name = $request->name;
         $data->save();
         return redirect()->route('academic-year.read')->with('success', 'Academic Year Added Successfully');
     }
+    
 
 
     public function read()
     {
 
-        $data['academic_year'] = AcademicYear::get();
+        $data['academic_years'] = AcademicYear::get();
         return view('admin.academic_year_list', $data);
     }
     /**
@@ -69,7 +71,7 @@ class AcademicYearController extends Controller
         $data['academic_year'] = AcademicYear::find($id);
         return view('admin.edit_academic_year',$data);
 
-    }
+    } 
  
 
     public function update(Request $request)

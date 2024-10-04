@@ -59,7 +59,7 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                @foreach ($academic_year as $item)
+                                @foreach ($academic_years as $item)
                                     
                               
                                   <tr>

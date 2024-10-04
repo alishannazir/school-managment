@@ -61,13 +61,13 @@
                               <tbody>
                                 @foreach ($class as $item)
                                     
-                              
+                            
                                   <tr>
                                       <td>{{$item->id}}</td>
                                       <td>{{$item->name}} </td>
                                       <td>{{$item->created_at}}</td>
                                       <td> <a href="{{route('class.edit' , $item->id )}}" class="btn btn-primary">Edit</a></td>
-                                      <td> <a href="{{route('academic-year.delete' , $item->id )}}" onclick=" return confirm('Are You sure want to delete?')" class="btn btn-danger">Delete</a></td>
+                                      <td> <a href="{{route('class.delete' , $item->id )}}" onclick=" return confirm('Are You sure want to delete?')" class="btn btn-danger">Delete</a></td>
                                   </tr>
                                   @endforeach
 

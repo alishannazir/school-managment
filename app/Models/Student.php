@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
-    protected $fillable =[
+    protected $fillable = [
         'name',
         'email',
         'password',
@@ -20,19 +20,17 @@ class Student extends Model
         'mobno',
         'dob',
         'address'
-    ];  
+    ];
 
-    // public function academic_year(){
 
-    //     return $this->belongsTo(AcademicYear::class);
+    // public function academicYear()
+    // {
+    //     return $this->belongsTo(AcademicYear::class, 'academic_year_id');
     // }
-    public function AcademicYear()
-    {
-        return $this->belongsTo(AcademicYear::class,'academic_year_id');
-    }
 
-    public function Class()
-    {
-        return $this->belongsTo(Classes::class,'class_id');
-    }
+    // public function class()
+    // {
+    //     return $this->belongsTo(Classes::class, 'class_id');
+    // }
+
 }
