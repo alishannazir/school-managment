@@ -34,7 +34,7 @@ class AcademicYearController extends Controller
         $data = new AcademicYear();
         $data->name = $request->name;
         $data->save();
-        return redirect()->route('academic-year.create')->with('success', 'Academic Year Added Successfully');
+        return redirect()->route('academic-year.read')->with('success', 'Academic Year Added Successfully');
     }
 
 
@@ -70,7 +70,7 @@ class AcademicYearController extends Controller
         return view('admin.edit_academic_year',$data);
 
     }
-
+ 
 
     public function update(Request $request)
     {
